@@ -46,7 +46,7 @@ Verify outputs on LEDs/scope.
 
 # Verilog Program (mux4to1.v)
 ```
-`timescale 1ns / 1ps
+timescale 1ns / 1ps
 module mux4to1 (
     input  wire i0,
     input  wire i1,
@@ -55,12 +55,13 @@ module mux4to1 (
     input  wire [1:0] sel,
     output wire y
 );
-    //
---
---
---
 
-   endmodule
+    assign y = (sel == 2'b00) ? i0 :
+               (sel == 2'b01) ? i1 :
+               (sel == 2'b10) ? i2 :
+                                i3;
+
+endmodule
 ```
 # Constraint file for Seven-Segment Display
 ```
